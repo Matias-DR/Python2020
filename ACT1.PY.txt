@@ -1,0 +1,20 @@
+tam=['im1 4,14', 'im2 33,15', 'im3 6,34', 'im4 410,134']
+valMax=int(input('Valor máximo: '))
+X=int(input('X: '))
+Y=int(input('Y: '))
+tupla=((int(tam[0][4:-3]), int(tam[0][-2:])), (int(tam[1][4:-3]), int(tam[1][-2:])), (int(tam[2][4:-3]), int(tam[2][-2:])), (int(tam[3][4:-4]), int(tam[3][-3:])))
+l1=[]
+l2=[]
+cont=0
+img=1
+for i in tupla:
+    if i[0]<valMax:
+        l1+=tam[cont][:3].partition('im'+str(img))
+        l1+=(tupla[cont], )
+    if i[0]<X and i[1]<Y:
+        l2+=tam[cont][:3].partition('im'+str(img))
+        l2+=(tupla[cont], )
+    cont+=1
+    img+=1
+print(l1)
+print(l2)
